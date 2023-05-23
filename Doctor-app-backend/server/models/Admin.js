@@ -27,7 +27,7 @@ const adminSchma = new Schema({
     },
     status:{
         type:String,
-        default:"offline",
+        default:"online",
         enum:["online","offline"]
     },
     password:{
