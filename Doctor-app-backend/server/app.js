@@ -5,6 +5,7 @@ const bodyParser = require("body-parser")
 const mongoose = require('mongoose')
 const {MongoClient} = require('mongodb');
 const fileUpload = require('express-fileupload')
+const helmet = require('helmet');
 
 const uri = "mongodb://localhost:27017/health-app";
 
@@ -12,6 +13,14 @@ const uri = "mongodb://localhost:27017/health-app";
 mongoose.set('strictQuery', true);
 
 const app = express()
+
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        scriptSrc: ["'self'", "'unsafe-eval'"],
+      },
+    })
+  );
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())

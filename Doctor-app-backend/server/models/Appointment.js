@@ -28,17 +28,14 @@ const appointmentSchema = new Schema({
         height:{
             type:String,
             trim:true,
-            required:true
         },
         weight:{
             type:String,
             trim:true,
-            required:true
         },
         bloodPressure: {
             type:String,
             trim:true,
-            required:true
         },
         problemShortInfo:{
             type:String,
